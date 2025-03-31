@@ -1,9 +1,0 @@
-%% controlTurtlebot3.m
-
-
-setenv('ROS_DOMAIN_ID','30');
-scan_node = ros2node("/turtlebot3_laserscan");
-ScanSub = ros2subscriber("/turtlebot3_laserscan", "/scan","sensor_msgs/LaserScan");
-scanMsg = ros2message(ScanSub);
-
-rosPlot(scanMsg,"MaximumRange",5);
