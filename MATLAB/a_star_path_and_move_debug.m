@@ -45,7 +45,7 @@ fprintf('در حال دریافت داده‌های odom...\n');
 pause(2);  % زمان کوتاه برای دریافت پیام
 currentPose = getCurrentPoseWithFallback(odomSub, manualPose);
 
-robotStartPos    = [currentPose(1)+10, currentPose(2)+10]
+robotStartPos    = [currentPose(1)+6.7, currentPose(2)+6.3]
 orientationPoint = [0, 0];
 goalPos          = [xClicks(1), yClicks(1)];
 
@@ -88,10 +88,10 @@ plot(goalPos(1),       goalPos(2),       'bs','MarkerSize',8,'MarkerFaceColor','
 title('مسیر برنامه‌ریزی شده با A* (مقیاس ۵سانتی در پیکسل)');
 legend('Path','Start','Goal');
 hold off;
-worldPath(:,1) = worldPath(:,1) -10;
-worldPath(:,2) = worldPath(:,2) -10;
-goalPos(1) = goalPos(1) - 10;
-goalPos(2) = goalPos(2) - 10;
+worldPath(:,1) = worldPath(:,1) -6.7;
+worldPath(:,2) = worldPath(:,2) -6.3;
+goalPos(1) = goalPos(1) - 6.7;
+goalPos(2) = goalPos(2) - 6.3;
 %--------------------------------------------------------------------------
 %  Control with ROS 2, printing debug info
 %--------------------------------------------------------------------------
