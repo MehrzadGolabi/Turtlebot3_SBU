@@ -17,6 +17,8 @@ odomSub   = ros2subscriber(node,"/odom","nav_msgs/Odometry");
 cmdVelPub = ros2publisher(node,"/cmd_vel","geometry_msgs/Twist");
 
 %% 1) Read the map image
+load myMapGrid.mat
+finalOrigin
 mapImage = imread('myMap.pgm');  % or specify full path
 
 % Threshold (<128 => occupied)
@@ -45,7 +47,7 @@ fprintf('در حال دریافت داده‌های odom...\n');
 pause(2);  % زمان کوتاه برای دریافت پیام
 currentPose = getCurrentPoseWithFallback(odomSub, manualPose);
 
-robotStartPos    = [currentPose(1)+6.7, currentPose(2)+6.3]
+robotStartPos    = [currentPose(1) + abs(finalOrigin(1)), currentPose(2) + abs(finalOrigin(2))]
 orientationPoint = [0, 0];
 goalPos          = [xClicks(1), yClicks(1)];
 
